@@ -36,7 +36,7 @@ export default function LeafletMap(props) {
   
   useEffect(() => {
     console.log(`FLYTO: ${props.flyto}`);
-    if (props.flyto) {handleFlyTo(props.flyto[1], props.flyto[0])}
+    if (props.flyto) {mapRef.current.flyTo([props.flyto[1]-0.0006, props.flyto[0]], 17);} //the -0.0006 is so the bottom sheet doesn't hide the marker
     }, [props.flyto]);
   
   useEffect(() => {
