@@ -86,7 +86,7 @@ export default function LeafletMap(props) {
         <AnimatedButton onClick={() => handleFlyTo(latitude, longitude)} style={{"font-variation-settings":  `'FILL' 1,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 48`}} className=" text-center z-[401] absolute bottom-32 right-10 bg-[#f1f3f4] rounded-full h-16 w-16 p-3 text-[36px] shadow-lg text-gray-800 material-symbols-outlined">
+  'opsz' 48`}} className=" text-center z-[401] absolute bottom-32 right-10 bg-[#f1f3f4] rounded-full h-16 w-16 p-3 !text-[36px] shadow-lg text-gray-800 material-symbols-outlined">
         my_location
         </AnimatedButton>
 
