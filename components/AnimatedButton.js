@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AnimatedButton = ({ className, style, children, defaultBgColor = "bg-white", onClick}) => {
+const AnimatedButton = ({ className, style, children, defaultBgColor = "bg-[#f1f3f4]", onClick}) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {

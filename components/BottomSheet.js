@@ -30,7 +30,7 @@ export default function BottomSheet(props) {
     }
 
     const soonGezemStreets = jsonData.map((record, index) => (
-        <AnimatedButton key={index} className="transition-all ease-in-out duration-250 relative font-sans font-medium bg-white mb-1.5 mx-0 text-center w-full" onClick={() => handleStreetClick(record.geometry)}>
+        <AnimatedButton key={index} defaultBgColor="bg-white" className="transition-all ease-in-out duration-250 relative font-sans font-medium mb-1.5 mx-0 text-center w-full" onClick={() => handleStreetClick(record.geometry)}>
           <h1 className="text-lg text-gray-800" dir="auto">{record.properties.name}</h1>
           <p className="text-sm text-gray-600">{`איסוף גזם ביום ${record.properties.gezem}`}</p>
           <p className="text-sm  text-gray-600">{stringFromDayNumber(record.properties.daysUntilGezem)}</p>
