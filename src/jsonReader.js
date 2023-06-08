@@ -12,18 +12,21 @@ const hebrewDaysInverted = { "ראשון": "0", "שני": "1", "שלישי": "2"
 //     }
 //     return nextNDays
 // }
-
-const queryGezem = (n, weekday) => {
-    const gezem = jsonData.filter((record) => (weekday).includes(record.properties.gezem));
-    return gezem.sort((a, b) => {
-        if (a.gezem < b.gezem) {
+const sortByProperty = (data, property) => {
+    return data.sort((a, b) => {
+        if (a.properties[property] < b.properties[property]) {
             return -1;
         }
-        if (a.gezem > b.gezem) {
+        if (a.properties[property] > b.properties[property]) {
             return 1;
         }
         return 0;
     });
+}
+
+const queryGezem = (n, weekday) => {
+    const gezem = jsonData.filter((record) => (weekday).includes(record.properties.gezem));
+    return gezem
 }
 
 const addDaysUntil = (data, weekday) => {
@@ -40,7 +43,7 @@ export default (n, weekday) => {
 
 };
 
-export { addDaysUntil };
+export { addDaysUntil, sortByProperty };
 
 
 
