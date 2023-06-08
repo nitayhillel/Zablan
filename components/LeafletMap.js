@@ -19,7 +19,7 @@ export default function LeafletMap(props) {
   })
   
   const geoJsonStyle = {
-    color: 'green',
+    color: '#4DB685',
     weight: 2,
     opacity: 1,
     fillOpacity: 0.5,
