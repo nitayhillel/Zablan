@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import WeekdayDisplay from '@/components/Weekday'
 import { useSelector } from 'react-redux';
 import { useState } from 'react'
+import HelpScreen from "./HelpScreen";
 
 
 const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false })
@@ -16,5 +17,6 @@ export default function Wrapper({ Component, pageProps }) {
     <WeekdayDisplay />
     <LeafletMap gezem={gezem} flyto={flyTo}/>
     <BottomSheet weekday={weekday} flyto={setFlyTo} />
+    <HelpScreen/>
   </>
 }
