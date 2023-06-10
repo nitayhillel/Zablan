@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const weekdays = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
 
 const initialState = {
-  weekday: weekdays[new Date().getDay() + 1],
+  weekday: weekdays[(new Date().getDay() + 1)%7],
 };
 
 const weekdaySlice = createSlice({
