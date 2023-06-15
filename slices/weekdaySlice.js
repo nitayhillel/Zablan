@@ -5,7 +5,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const weekdays = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
 
 const initialState = {
-  weekday: weekdays[(new Date().getDay() + 1)%7],
+  weekday: weekdays[(new Date().getDay())%7],
+  chosenWeekday: weekdays[(new Date().getDay() + 1)%7],
 };
 
 const weekdaySlice = createSlice({
@@ -13,7 +14,7 @@ const weekdaySlice = createSlice({
   initialState,
   reducers: {
     setWeekday: (state, action) => {
-      state.weekday = action.payload;
+      state.chosenWeekday = action.payload;
     },
   },
 });

@@ -4,6 +4,7 @@ import { addDaysUntil, sortByProperty } from "@/src/jsonReader";
 import AnimatedButton from "./AnimatedButton";
 
 export default function BottomSheet(props) {
+    
     let jsonData = addDaysUntil(GeoJSON.features, props.weekday)
     jsonData = sortByProperty(jsonData, "daysUntilGezem");
 

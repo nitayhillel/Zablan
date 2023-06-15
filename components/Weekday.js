@@ -7,7 +7,7 @@ const WeekdayDisplay = () => {
   const weekdays = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
   const dispatch = useDispatch();
-  const weekday = useSelector(state => state.weekday)['weekday'];
+  const weekday = useSelector(state => state.weekday)['chosenWeekday'];
 
   useEffect(() => {
     setCurrentDayIndex(weekdays.indexOf(weekday));
