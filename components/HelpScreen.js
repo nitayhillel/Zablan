@@ -33,6 +33,7 @@ function HelpScreen() {
                         <div className="w-fit text-center block">
                             <div className="text-base text-gray-600 text-center">במפה תוכלו לראות רחובות מסומנים בירוק, בהם אוספים גזם וגרוטאות ביום בשבוע המצוין בחלק העליון של המסך.</div>
                             <div className="text-base text-gray-600 text-center block">ניתן לדפדף בין ימות השבוע, ולהשתמש בתפריט למטה כדי למצוא מידע על רחובות ספציפיים.</div>
+                            <div className="text-base text-gray-600 text-center block">גזם וגרוטאות נאספים לרוב בשעות הבוקר המוקדמות, לכן כדאי לחפש ברחובות בהם נאסף הגזם מחר ולא היום.</div>
                         </div>
                         <div className="mt-6 text-left">
                             <div className="text-gray-400">
