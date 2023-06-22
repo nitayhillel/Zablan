@@ -11,10 +11,11 @@ export default function BottomSheet(props) {
     const [sheet, setBottomSheet] = useState(false);
 
     const handleArrowClick = () => {
-        setBottomSheet(!sheet);
+        setBottomSheet(!sheet);;
     };
 
     const handleStreetClick = (streetGeometry) => {
+        setBottomSheet(!sheet);
         if (streetGeometry.type == "LineString") {
             props.flyto(streetGeometry.coordinates[0])
         }
