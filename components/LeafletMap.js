@@ -1,10 +1,12 @@
 import { updateLocation } from "@/slices/userLocation";
+import { icon, map } from "leaflet";
+import "leaflet-doubletapdrag";
+import "leaflet-doubletapdragzoom";
 import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useRef } from "react";
 import { GeoJSON, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { useDispatch, useSelector } from "react-redux";
 import { useGeolocation } from "react-use";
-import { icon, map } from "leaflet"
 import AnimatedButton from "./AnimatedButton";
 
 export default function LeafletMap(props) {
@@ -62,7 +64,7 @@ export default function LeafletMap(props) {
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '100%', width: '100%' }}>
-      <MapContainer className="absolute top-0 z-0" ref={mapRef} zoomControl={false} center={latitude ? [latitude, longitude] : Object.values(defaultProps.center)} zoom={defaultProps.zoom} style={{ height: '100%', width: '100%' }}>
+      <MapContainer className="absolute top-0 z-0" ref={mapRef} zoomControl={false} doubleTapDragZoom={'center'} center={latitude ? [latitude, longitude] : Object.values(defaultProps.center)} zoom={defaultProps.zoom} style={{ height: '100%', width: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors"
