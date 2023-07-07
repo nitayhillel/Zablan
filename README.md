@@ -1,6 +1,6 @@
 # Zablan - for Junk Lovers and Adventurers
 
-![Zablan Logo](public\logo192.png)
+![Zablan Logo](https://raw.githubusercontent.com/nitayhillel/Zablan/main/public/logo192.png)
 
 
 ## Table of Contents
