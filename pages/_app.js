@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/store'
 import Wrapper from '@/components/Wrapper'
 import Head from 'next/head'
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({ Component, pageProps }) {
   return <>
@@ -23,6 +24,7 @@ export default function App({ Component, pageProps }) {
     </Head>
     <Provider store={store}>
       <Wrapper />
+      <Analytics/>
     </Provider>
   </>
 }
