@@ -27,7 +27,7 @@ const WeekdayDisplay = () => {
 
 
   return (
-    <div className="absolute z-[401] top-3 m-auto left-0 right-0 text-center w-max bg-[#f1f3f4] rounded-3xl p-5 pl-6 pr-6 shadow-lg text-gray-800">
+    <div className="relative row-start-1 col-start-2 self-start	justify-self-center	 text-center w-max bg-[#f1f3f4] rounded-3xl p-5 pl-6 pr-6 shadow-lg text-gray-800 pointer-events-auto">
       <h2 className='text-gray-800'> אזורי איסוף גזם </h2>
       <h2 className='font-semibold'> {weekdays[currentDayIndex]} </h2>
       <AnimatedButton className="absolute left-1 top-6 bottom-0 h-min m-auto transition material-symbols-outlined rounded-full text-gray-800 mdcursor" defaultBgColor='bg-[#f1f3f4]' onClick={goToPreviousDay}>chevron_left</AnimatedButton>

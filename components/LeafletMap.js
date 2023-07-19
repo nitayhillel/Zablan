@@ -18,8 +18,8 @@ export default function LeafletMap(props) {
     if (latitude) {
       dispatch(updateLocation(latitude, longitude))
     }
-  })
-  
+  }, [latitude, longitude, dispatch])
+
   const geoJsonStyle = {
     color: '#4DB685',
     weight: 2,
@@ -33,14 +33,14 @@ export default function LeafletMap(props) {
     type: "FeatureCollection",
     features: soonGezemStreets
   };
-  
+
   const geoJsonRef = useRef(null);
-  
   useEffect(() => {
-    console.log(`FLYTO: ${props.flyto}`);
-    if (props.flyto) {mapRef.current.flyTo([props.flyto[1]-0.0006, props.flyto[0]], 17);} //the -0.0006 is so the bottom sheet doesn't hide the marker
-    }, [props.flyto]);
-  
+    if (props.flyto) {
+      mapRef.current.flyTo([props.flyto[0] - 0.0006, props.flyto[1]], 17)
+    } //the -0.0006 is so the bottom sheet doesn't hide the marker
+  }, [props.flyto]);
+
   useEffect(() => {
     if (geoJsonRef.current) {
       geoJsonRef.current.clearLayers().addData(geojson);
@@ -57,14 +57,10 @@ export default function LeafletMap(props) {
 
   const mapRef = useRef(null);
 
-  const handleFlyTo = (lat, lng) => {
-    if (lng) mapRef.current.flyTo([lat, lng], 17);
-  }
-  
   return (
     // Important! Always set the container height explicitly
-    <div style={{ height: '100%', width: '100%' }}>
-      <MapContainer className="absolute top-0 z-0" ref={mapRef} zoomControl={false} doubleTapDragZoom={'center'} center={latitude ? [latitude, longitude] : Object.values(defaultProps.center)} zoom={defaultProps.zoom} style={{ height: '100%', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%'}}>
+      <MapContainer className="absolute top-0 z-0" ref={mapRef} zoomControl={false} doubleTapDragZoom={'center'} doubleTapDragZoomOptions={{ reverse: false }} center={latitude ? [latitude, longitude] : Object.values(defaultProps.center)} zoom={defaultProps.zoom} style={{ height: '100%', width: '100%'}}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors"
@@ -74,23 +70,18 @@ export default function LeafletMap(props) {
           iconUrl: "locationMarker.svg",
           shadowUrl: "locationMarkerShadow.png",
           iconSize: [20, 20],
-          shadowSize:   [20, 20],
+          shadowSize: [20, 20],
           shadowAnchor: [10, 7],
           className: "animate-pulse"
         })}>
         </Marker>}
-        {props.flyto && <Marker position={[props.flyto[1], props.flyto[0]]} icon={icon({
+        {props.flyto && (props.flyto.length > 2) && <Marker position={[props.flyto[0], props.flyto[1]]} icon={icon({
           iconUrl: "pinMarker.svg",
           iconSize: [30, 30],
           iconAnchor: [20, 20]
         })}>
         </Marker>}
-        <AnimatedButton onClick={() => handleFlyTo(latitude, longitude)} style={{"font-variation-settings":  `'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48`}} className=" text-center z-[401] absolute bottom-32 right-10 rounded-full h-16 w-16 p-3 !text-[36px] shadow-lg text-gray-800 material-symbols-outlined">
-        my_location
-        </AnimatedButton>
+
 
       </MapContainer>
     </div>

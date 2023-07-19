@@ -8,15 +8,15 @@ const userLocationSlice = createSlice({
     initialState: { latitude: null, longitude: null },
     reducers: {
       updateLocation: (state, action) => {
-        state.lat = action.payload.latitude;
-        state.lng = action.payload.longitude;
+        state.latitude = action.payload.latitude;
+        state.longitude = action.payload.longitude;
       }
     },
   })
   
 
   export const updateLocation = (latitude, longitude) => ({
-    type: 'updateLocation',
-    payload: { latitude, longitude }
+    type: 'userLocation/updateLocation',
+    payload: { "latitude":latitude, "longitude":longitude }
   });
   export default userLocationSlice.reducer

@@ -17,10 +17,10 @@ export default function BottomSheet(props) {
     const handleStreetClick = (streetGeometry) => {
         setBottomSheet(!sheet);
         if (streetGeometry.type == "LineString") {
-            props.flyto(streetGeometry.coordinates[0])
+            props.flyto([...streetGeometry.coordinates[0].reverse(), "marker"])
         }
         else {
-            props.flyto(streetGeometry.coordinates[0][0])
+            props.flyto([...streetGeometry.coordinates[0][0].reverse(), "marker"])
         }
     };
 
@@ -49,8 +49,8 @@ export default function BottomSheet(props) {
     ))
 
     return (
-        <div className={`transition-all ease-in-out duration-500 h-[50vh] bg-[#f1f3f4] shadow-[0_-5px_10px_0px_rgba(0,0,0,0.14)] w-screen text-8xl text-black fixed bottom-0 rounded-xl ${!sheet && "translate-y-[calc(50vh-50px)]"}`}>
-            <button className={`transition-transform ease-in-out duration-500 material-symbols-outlined mdcursor mt-3 mb-3 top-0 left-1/2 right-1/2 text-center absolute text-gray-500 ${!sheet ? "-rotate-90" : "rotate-90"}`} onClick={handleArrowClick}>arrow_forward_ios</button>
+        <div className={`transition-all ease-in-out duration-500 h-[50vh] bg-[#f1f3f4] shadow-[0_-5px_10px_0px_rgba(0,0,0,0.14)] w-screen text-8xl text-black fixed z-[402] bottom-0 rounded-xl ${!sheet && "translate-y-[calc(50vh-50px)]"}`}>
+            <button className={`transition-transform ease-in-out duration-500 material-symbols-outlined mdcursor mt-3 mb-3 top-0 left-1/2 right-1/2 text-center absolute text-gray-600 ${!sheet ? "-rotate-90" : "rotate-90"}`} onClick={handleArrowClick}>arrow_forward_ios</button>
             <div className="bg-white mx-auto w-[33vw] min-w-[300px] mt-16 mb-2 flex rounded-xl h-12 items-center">
                     <input ref={searchRef} className="w-full text-xl grow bg-transparent focus:outline-none p-3 placeholder-shown:[direction:rtl]" style={{}} type="text" placeholder=" " dir="auto" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
                     <img src="./search.svg" className="select-none grow-0 mr-2 h-9" />
