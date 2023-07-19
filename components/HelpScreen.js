@@ -25,8 +25,8 @@ function HelpScreen() {
         <>
             <AnimatedButton className="row-start-1 col-start-1 text-center rounded-full small:h-12 small:w-12 small:p-1.5 p-3 !text-[36px] h-16 w-16 shadow-lg text-gray-600 material-symbols-outlined pointer-events-auto" onClick={togglePopup}>help</AnimatedButton>
             {showPopup && (
-                <div className="w-full h-full bg-black bg-opacity-30 z-[402] absolute top-0 pointer-events-auto" id="popup-background" onClick={closePopup}>
-                    <div className={`relative top-[calc(50%-15vh)] bg-[#f1f3f4] shadow-lg rounded-xl mx-auto min-h-fit w-fit px-16 py-7 ${showPopup ? 'zoom-in' : ''}`} dir="rtl" ref={popupRef} onAnimationEnd={handleAnimationEnd}>
+                <div className="w-full h-full bg-black bg-opacity-30 absolute z-[403] top-0 pointer-events-auto" id="popup-background" onClick={closePopup}>
+                    <div className={`relative inset-0 mx-auto bg-[#f1f3f4] z-[403] shadow-lg rounded-xl min-h-fit w-fit px-16 py-7 ${showPopup ? 'zoom-in' : ''}`} dir="rtl" ref={popupRef} onAnimationEnd={handleAnimationEnd}>
                         <img src="./logo512.png" alt="Zablan logo" className="w-20 h-20 block mx-auto mb-5"/>
                         <h1 className="w-full text-xl text-gray-800 text-center">Zablan</h1>
                         <h2 className="w-full text-lg text-gray-800 text-center">לחובבי שימוש חוזר, יצירה והרפתקאות</h2>
